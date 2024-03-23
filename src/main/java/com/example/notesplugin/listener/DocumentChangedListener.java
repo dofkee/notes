@@ -1,12 +1,7 @@
 package com.example.notesplugin.listener;
 
-import com.example.notesplugin.data.ChangedFilesStorage;
-import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.event.DocumentEvent;
 import com.intellij.openapi.editor.event.DocumentListener;
-import com.intellij.openapi.fileEditor.FileDocumentManager;
-import com.intellij.openapi.project.ProjectLocator;
-import com.intellij.openapi.vfs.VirtualFile;
 import org.jetbrains.annotations.NotNull;
 
 public class DocumentChangedListener implements DocumentListener {

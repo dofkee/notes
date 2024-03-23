@@ -14,24 +14,18 @@ import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.Inlay;
 import com.intellij.openapi.editor.event.EditorFactoryEvent;
 import com.intellij.openapi.editor.event.EditorFactoryListener;
-import com.intellij.openapi.editor.impl.EditorImpl;
 import com.intellij.openapi.project.Project;
-import com.intellij.openapi.util.Key;
 import com.intellij.openapi.vfs.VirtualFile;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-
 public class CustomEditorListener implements EditorFactoryListener {
 
-    //TODO -- add aproximal location search in case if file was changed remotely or by someone else.
-    // In state - store hash of file
-    // If not possible to locate in some fixed range - mark note as stale
+    //TODO
+    // If not possible to locate in some fixed range - mark note as stale ; show ! sign in UI so that link could be manually restored
     // If line contains - code part - do nothing.
     // check only first line from note
-
-
 
     /**
      * This method invoked :
@@ -63,7 +57,6 @@ public class CustomEditorListener implements EditorFactoryListener {
                 });
             });
 
-
             return;
         }
         final String[] virtualFileChecksum = {null};
@@ -87,7 +80,5 @@ public class CustomEditorListener implements EditorFactoryListener {
                 });
 
         DataCenter.refreshTable(project);
-
     }
-
 }

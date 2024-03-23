@@ -1,11 +1,11 @@
 package com.example.notesplugin.data;
 
 import com.example.notesplugin.model.FileToInlayModel;
-import com.example.notesplugin.perf.Response;
-import com.example.notesplugin.utils.InlayUtils;
-import com.example.notesplugin.model.NoteToInlay;
 import com.example.notesplugin.model.NoteData;
+import com.example.notesplugin.model.NoteToInlay;
+import com.example.notesplugin.perf.Response;
 import com.example.notesplugin.state.NotesStateComponent;
+import com.example.notesplugin.utils.InlayUtils;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-import static com.example.notesplugin.utils.Perf.*;
+import static com.example.notesplugin.utils.Perf.perf;
 
 public class DataCenter {
     public static String FILE_PATH ;

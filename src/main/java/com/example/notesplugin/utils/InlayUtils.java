@@ -2,8 +2,8 @@ package com.example.notesplugin.utils;
 
 import com.example.notesplugin.data.DataCenter;
 import com.example.notesplugin.data.InlaysStorage;
-import com.example.notesplugin.model.NoteToInlay;
 import com.example.notesplugin.model.NoteData;
+import com.example.notesplugin.model.NoteToInlay;
 import com.example.notesplugin.perf.Response;
 import com.intellij.codeInsight.hints.presentation.InlayPresentation;
 import com.intellij.codeInsight.hints.presentation.MenuOnClickPresentation;

@@ -34,8 +34,6 @@ public class NoteDataState {
         );
     }
 
-
-
     public NoteDataState(NoteData from) {
         this(from.getNoteText(), from.getContent(), from.getFileName(), from.getLineNumberStart(), from.getFileType(),from.getLineNumberOffset()
         );

@@ -1,8 +1,8 @@
 package com.example.notesplugin.data;
 
 import com.example.notesplugin.model.FileToInlayModel;
-import com.example.notesplugin.model.NoteToInlay;
 import com.example.notesplugin.model.NoteData;
+import com.example.notesplugin.model.NoteToInlay;
 import com.example.notesplugin.state.NotesState;
 import com.example.notesplugin.state.NotesStateComponent;
 import com.intellij.openapi.editor.Editor;

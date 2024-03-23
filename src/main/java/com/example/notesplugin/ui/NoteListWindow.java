@@ -16,8 +16,6 @@ import com.intellij.openapi.vfs.pointers.VirtualFilePointerManager;
 import com.intellij.openapi.wm.ToolWindow;
 
 import javax.swing.*;
-import javax.swing.event.TableModelEvent;
-import javax.swing.event.TableModelListener;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -43,12 +41,12 @@ public class NoteListWindow implements Disposable {
 
         btnClear.addActionListener(e -> DataCenter.reset(project));
         btnClose.addActionListener(e -> toolWindow.hide(null));
-        tbContent.getModel().addTableModelListener(new TableModelListener() {
-            @Override
-            public void tableChanged(TableModelEvent e) {
-                TableAutoSizer.sizeColumnsToFit(tbContent, 4);
-            }
-        });
+//        tbContent.getModel().addTableModelListener(new TableModelListener() {
+//            @Override
+//            public void tableChanged(TableModelEvent e) {
+//                TableAutoSizer.sizeColumnsToFit(tbContent, 4);
+//            }
+//        });
         tbContent.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {

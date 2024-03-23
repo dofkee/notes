@@ -1,13 +1,13 @@
 package com.example.notesplugin.action;
 
+import com.example.notesplugin.data.DataCenter;
+import com.example.notesplugin.ui.NoteDialog;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.SelectionModel;
 import com.intellij.openapi.project.Project;
-import com.example.notesplugin.data.DataCenter;
-import com.example.notesplugin.ui.NoteDialog;
 import com.intellij.openapi.vfs.VirtualFile;
 
 public class PopupAction extends AnAction {

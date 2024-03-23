@@ -1,7 +1,5 @@
 package com.example.notesplugin.model;
 
-import com.example.notesplugin.model.NoteToInlay;
-
 import java.util.List;
 
 public class FileToInlayModel {

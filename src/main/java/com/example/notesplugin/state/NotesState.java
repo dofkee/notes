@@ -15,7 +15,6 @@ public class NotesState implements Cloneable  {
         notes.add(noteData);
     }
 
-
     public void removeFromNotes(NoteData noteData) {
         if (noteData != null) {
             notes.remove(noteData);

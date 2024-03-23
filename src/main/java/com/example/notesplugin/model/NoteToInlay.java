@@ -1,6 +1,5 @@
 package com.example.notesplugin.model;
 
-import com.example.notesplugin.model.NoteData;
 import com.intellij.openapi.editor.Inlay;
 
 public class NoteToInlay {
