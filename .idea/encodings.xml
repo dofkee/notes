@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/notesplugin/Debug.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/notesplugin/listener/CustomEditorListener.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/notesplugin/listener/DocumentChangedListener.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/notesplugin/listener/VListener.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/notesplugin/listener/VirtFileListener.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/notesplugin/model/FileToInlayModel.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/notesplugin/model/NoteData.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/notesplugin/model/NoteToInlay.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/notesplugin/perf/Action.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/notesplugin/perf/ActionR.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/notesplugin/perf/Response.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/notesplugin/state/NoteDataState.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/notesplugin/state/NotesState.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/notesplugin/state/NotesStateComponent.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/notesplugin/ui/NoteDialog.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/notesplugin/ui/NoteListWindow.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/notesplugin/ui/NoteListWindowFactory.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/notesplugin/ui/TableAutoSizer.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/notesplugin/utils/InlayUtils.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/notesplugin/utils/Perf.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/notesplugin/utils/PluginUtil.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/example/notesplugin/utils/TextUtils.java" charset="UTF-8" />
+  </component>
+</project>

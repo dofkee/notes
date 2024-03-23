@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="NotesState">
+    <option name="notes">
+      <list>
+        <NoteData>
+          <option name="checksum" value="1223494305c4040d30ef3afb4e85a366" />
+          <option name="content" value="    buildSearchableOptions {" />
+          <option name="fileName" value="build.gradle.kts" />
+          <option name="fileType" value="kts" />
+          <option name="lineNumber" value="40" />
+          <option name="lineNumberOffset" value="1018" />
+          <option name="lineNumberStart" value="44" />
+          <option name="noteText" value="What this part does ? " />
+          <option name="numberOfDuplicateOffsetsFound" value="[40]" />
+          <option name="path" value="$PROJECT_DIR$/build.gradle.kts" />
+          <option name="uuid" value="f07abf99-c5b3-4487-9f94-ded82e5e24b0" />
+        </NoteData>
+      </list>
+    </option>
+  </component>
+</project>

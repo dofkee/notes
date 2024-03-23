@@ -1,0 +1,68 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>com.example.NotesPlugin</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+    <name>NotesPlugin</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor email="support@yourcompany.com" url="https://www.yourcompany.com">YourCompany</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+    <description><![CDATA[
+    Enter short description for your plugin here.<br>
+    <em>most HTML tags may be used</em>
+  ]]></description>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <actions>
+
+        <group id="Notes.ToolsMenu" popup="true" searchable="false" text="Notes"
+               icon="AllIcons.Actions.AddToDictionary">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </group>
+
+        <action class="com.example.notesplugin.action.PopupAction" id="popup"   icon="AllIcons.Actions.ProfileRed" text="Add note to Code"
+                description="Add note to Code">
+            <add-to-group group-id="Notes.ToolsMenu" anchor="last"/>
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </action>
+    </actions>
+
+    <project-components>
+        <component>
+            <implementation-class>com.example.notesplugin.state.NotesStateComponent</implementation-class>
+        </component>
+    </project-components>
+
+    <!--    <extensionPoints>-->
+    <!--        <extensionPoint qualifiedName="com.notes.inlays.my_inlayDescriptorProvider"-->
+    <!--                        name="ep1"-->
+    <!--                        interface="com.example.notesplugin.ui.InlayDescriptorProvider"-->
+    <!--                        dynamic="true"/>-->
+    <!--    </extensionPoints>-->
+
+
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow factoryClass="com.example.notesplugin.ui.NoteListWindowFactory" id="noteWindowFactory" anchor="right"></toolWindow>
+        <editorFactoryListener implementation="com.example.notesplugin.listener.CustomEditorListener" />
+        <editorFactoryDocumentListener implementation="com.example.notesplugin.listener.DocumentChangedListener" />
+        <fileDocumentManagerListener implementation="com.example.notesplugin.listener.VirtFileListener" />
+
+    </extensions>
+
+    <!--    <extensions defaultExtensionNs="com.example.NotesPlugin" >-->
+    <!--        -->
+    <!--        <ep1 > </ep1>-->
+    <!--    </extensions>-->
+    <!--    -->
+</idea-plugin>
