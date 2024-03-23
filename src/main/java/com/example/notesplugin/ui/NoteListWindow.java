@@ -16,6 +16,10 @@ import com.intellij.openapi.vfs.pointers.VirtualFilePointerManager;
 import com.intellij.openapi.wm.ToolWindow;
 
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -72,6 +76,35 @@ public class NoteListWindow implements Disposable {
                 }
             }
         });
+
+        createRowFilter(tbContent);
+    }
+
+    public JTextField createRowFilter(JTable table) {
+        RowSorter<? extends TableModel> rs = table.getRowSorter();
+        if (rs == null) {
+            table.setAutoCreateRowSorter(true);
+            rs = table.getRowSorter();
+        }
+        TableRowSorter<? extends TableModel> rowSorter = (TableRowSorter<? extends TableModel>) rs;
+
+        tfTopic.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {update(e);}
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {update(e);}
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {update(e);}
+
+            private void update(DocumentEvent e) {
+                String text = tfTopic.getText();
+                rowSorter.setRowFilter(text.trim().isEmpty() ? null : RowFilter.regexFilter("(?i)" + text));
+            }
+        });
+
+        return tfTopic;
     }
 
     public Editor openEditor(String path, int offset) {
