@@ -20,9 +20,11 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
-import java.awt.*;
+import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.List;
 
 public class NoteListWindow implements Disposable {
     private JTextField tfTopic;
@@ -58,7 +60,7 @@ public class NoteListWindow implements Disposable {
                 Point p = e.getPoint();
                 int row = tbContent.rowAtPoint(p);
                 int column = tbContent.columnAtPoint(p);
-                if (column == 2) {
+                if (column == DataCenter.FILE_NAME_COLUMN) {
                     NoteData noteData = DataCenter.get(row);
                     openEditor(noteData.getPath(),  noteData.getLineNumberOffsetInt());
                 }
@@ -87,6 +89,11 @@ public class NoteListWindow implements Disposable {
             rs = table.getRowSorter();
         }
         TableRowSorter<? extends TableModel> rowSorter = (TableRowSorter<? extends TableModel>) rs;
+
+        List<RowSorter.SortKey> sortKeys = new ArrayList<>();
+        sortKeys.add(new RowSorter.SortKey(2, SortOrder.ASCENDING));
+        sortKeys.add(new RowSorter.SortKey(3, SortOrder.ASCENDING));
+        rowSorter.setSortKeys(sortKeys);
 
         tfTopic.getDocument().addDocumentListener(new DocumentListener() {
             @Override

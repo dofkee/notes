@@ -1,5 +1,6 @@
 package com.example.notesplugin.listener;
 
+import com.example.notesplugin.Debug;
 import com.example.notesplugin.data.DataCenter;
 import com.example.notesplugin.data.InlaysStorage;
 import com.example.notesplugin.model.FileToInlayModel;
@@ -7,7 +8,7 @@ import com.example.notesplugin.model.NoteData;
 import com.example.notesplugin.model.NoteToInlay;
 import com.example.notesplugin.state.NotesStateComponent;
 import com.example.notesplugin.utils.InlayUtils;
-import com.example.notesplugin.utils.Perf;
+import com.example.notesplugin.perf.Perf;
 import com.example.notesplugin.utils.PluginUtil;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
@@ -24,9 +25,6 @@ public class CustomEditorListener implements EditorFactoryListener {
 
     //TODO
     // If not possible to locate in some fixed range - mark note as stale ; show ! sign in UI so that link could be manually restored
-    // If line contains - code part - do nothing.
-    // check only first line from note
-
     /**
      * This method invoked :
      * - when editor is opened.
@@ -68,14 +66,22 @@ public class CustomEditorListener implements EditorFactoryListener {
                 .forEach(note -> {
                     virtualFileChecksum[0] = virtualFileChecksum[0] == null ? PluginUtil.calculateMD5(virtualFile) : virtualFileChecksum[0];
 
-                    Integer offset = note.getChecksum().equals(virtualFileChecksum[0]) ?
-                            note.getLineNumberOffsetInt() :
-                            InlayUtils.findPotentialOffsetForNote(note, editor, document);
+                    Integer offset;
+                    if (note.getChecksum().equals(virtualFileChecksum[0])) {
+                        offset = note.getLineNumberOffsetInt();
+                        Debug.log("Exact offset found for note [" + note.getNoteText() + "] Offset = [" + offset + "]" );
+                    } else {
+                        offset = InlayUtils.findPotentialOffsetForNote(note, editor, document);
+                    }
+
+                    Debug.log("offset found for ["+note.getNoteText()+"] : " + offset);
                     if (offset > -1) {
                         Inlay<?> inlay = InlayUtils.createInlay(offset, note, editor, project);
                         note.setLineNumberOffset(String.valueOf(offset));
                         note.setLineNumber(String.valueOf(editor.offsetToVisualLine(offset, true)));
                         InlaysStorage.getInstance().addInlay(path, new NoteToInlay(note, inlay));
+                    } else {
+                        note.setStale(true);
                     }
                 });
 

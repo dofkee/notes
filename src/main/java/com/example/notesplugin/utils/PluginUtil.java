@@ -1,6 +1,7 @@
 package com.example.notesplugin.utils;
 
 import com.example.notesplugin.perf.ActionR;
+import com.example.notesplugin.perf.Perf;
 import com.example.notesplugin.perf.Response;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.editor.Document;

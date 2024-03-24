@@ -1,7 +1,7 @@
 package com.example.notesplugin.state;
 
 import com.example.notesplugin.data.DataCenter;
-import com.example.notesplugin.utils.Perf;
+import com.example.notesplugin.perf.Perf;
 import com.intellij.openapi.application.Application;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.PersistentStateComponent;

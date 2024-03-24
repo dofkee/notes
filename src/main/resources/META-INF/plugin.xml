@@ -55,7 +55,6 @@
     <extensions defaultExtensionNs="com.intellij">
         <toolWindow factoryClass="com.example.notesplugin.ui.NoteListWindowFactory" id="noteWindowFactory" anchor="right"></toolWindow>
         <editorFactoryListener implementation="com.example.notesplugin.listener.CustomEditorListener" />
-        <editorFactoryDocumentListener implementation="com.example.notesplugin.listener.DocumentChangedListener" />
         <fileDocumentManagerListener implementation="com.example.notesplugin.listener.VirtFileListener" />
 
     </extensions>

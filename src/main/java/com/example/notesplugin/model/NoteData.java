@@ -19,6 +19,7 @@ public class NoteData {
 
     @Transient
     private String lineNumber;
+    private boolean stale;
 
     public NoteData(){
     }
@@ -146,5 +147,13 @@ public class NoteData {
 
     public void setNumberOfDuplicateOffsetsFound(String numberOfDuplicateOffsetsFound) {
         this.numberOfDuplicateOffsetsFound = numberOfDuplicateOffsetsFound;
+    }
+
+    public void setStale(boolean stale) {
+        this.stale = stale;
+    }
+
+    public boolean getStale() {
+        return stale;
     }
 }

@@ -12,11 +12,11 @@ public class VirtFileListener implements FileDocumentManagerListener {
 
     @Override
     public void beforeAnyDocumentSaving(@NotNull Document document, boolean explicit) {
-        FileDocumentManagerListener.super.beforeAnyDocumentSaving(document, explicit);
-
-        //System.out.println("VirtFileListener beforeAnyDocumentSaving document "  + document);
-        VirtualFile file = FileDocumentManager.getInstance().getFile(document);
-        ChangedFilesStorage.getInstance().addChangedPathIfNotExist(file.getPath() , ProjectLocator.getInstance().guessProjectForFile(file));
+//        FileDocumentManagerListener.super.beforeAnyDocumentSaving(document, explicit);
+//
+//        //System.out.println("VirtFileListener beforeAnyDocumentSaving document "  + document);
+//        VirtualFile file = FileDocumentManager.getInstance().getFile(document);
+//        ChangedFilesStorage.getInstance().addChangedPathIfNotExist(file.getPath() , ProjectLocator.getInstance().guessProjectForFile(file));
     }
 
 //    @Override

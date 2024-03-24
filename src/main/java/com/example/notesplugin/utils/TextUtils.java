@@ -30,7 +30,7 @@ public class TextUtils {
                 leastDeviatedOffset = offset;
             }
         }
-        return leastDeviatedOffset;
+        return leastDeviatedOffset == Integer.MAX_VALUE ? -1 : leastDeviatedOffset;
     }
 
     public static List<Integer> findOffsets(String input, String search) {

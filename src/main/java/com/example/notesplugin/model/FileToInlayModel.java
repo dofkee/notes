@@ -7,7 +7,6 @@ public class FileToInlayModel {
     private String filePath;
     private List<NoteToInlay> inlays;
 
-
     public FileToInlayModel(String filePath, List<NoteToInlay> inlays) {
         this.filePath = filePath;
         this.inlays = inlays;

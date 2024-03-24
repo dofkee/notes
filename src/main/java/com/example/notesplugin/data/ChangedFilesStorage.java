@@ -26,7 +26,7 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.stream.Collectors;
 
-import static com.example.notesplugin.utils.Perf.perf;
+import static com.example.notesplugin.perf.Perf.perf;
 
 public class ChangedFilesStorage {
 
@@ -63,10 +63,7 @@ public class ChangedFilesStorage {
                         String url = PluginUtil.getFileUrl(path);
 
                         Document document = perf( "getDocumentFromUrl" ,
-                                () -> {
-                                    Document doc = PluginUtil.getDocumentFromUrl(url);
-                                    return new Response<>(" ", doc);
-                                }
+                                () -> new Response<>(" ", PluginUtil.getDocumentFromUrl(url))
                         );
 
                         if (document == null) {
@@ -75,10 +72,9 @@ public class ChangedFilesStorage {
 
                         List<Editor> editors = Arrays.stream(EditorFactory.getInstance().getEditors(document))
                                 .filter(e -> e.getInlayModel().hasAfterLineEndElements())
-                                .collect(Collectors.toList());
+                                .toList();
 
                         for (Editor editor : editors) {
-
                             VirtualFile virtualFile = editor.getVirtualFile();
                             if (virtualFile == null) {
                                 continue;

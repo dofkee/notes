@@ -1,9 +1,6 @@
-package com.example.notesplugin.utils;
+package com.example.notesplugin.perf;
 
 import com.example.notesplugin.Debug;
-import com.example.notesplugin.perf.Action;
-import com.example.notesplugin.perf.ActionR;
-import com.example.notesplugin.perf.Response;
 
 import java.time.Duration;
 import java.util.Date;

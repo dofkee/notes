@@ -1,15 +1,18 @@
 package com.example.notesplugin.utils;
 
+import com.example.notesplugin.Debug;
 import com.example.notesplugin.data.DataCenter;
 import com.example.notesplugin.data.InlaysStorage;
 import com.example.notesplugin.model.NoteData;
 import com.example.notesplugin.model.NoteToInlay;
+import com.example.notesplugin.perf.Perf;
 import com.example.notesplugin.perf.Response;
 import com.intellij.codeInsight.hints.presentation.InlayPresentation;
 import com.intellij.codeInsight.hints.presentation.MenuOnClickPresentation;
 import com.intellij.codeInsight.hints.presentation.PresentationFactory;
 import com.intellij.codeInsight.hints.presentation.PresentationRenderer;
 import com.intellij.icons.AllIcons;
+
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
@@ -46,6 +49,7 @@ public class InlayUtils {
     public static Integer findPotentialOffsetForNote(@NotNull NoteData note, @NotNull Editor editor, @NotNull Document document) {
         String data = document.getCharsSequence().toString();
         if (StringUtils.isEmpty(data)) {
+            Debug.log("File is empty.");
             return -1;
         }
         return Perf.perf( null,  () -> {
@@ -85,7 +89,6 @@ public class InlayUtils {
     }
 
     public static void createInlays(@NotNull NoteData noteData, @NotNull Project project, @NotNull VirtualFile file) {
-
         Document document = FileDocumentManager.getInstance().getDocument(file);
         Editor[] editors = Optional.ofNullable(document).map(d -> EditorFactory.getInstance().getEditors(d)).orElse( null);
 
