@@ -58,13 +58,14 @@ public class NoteListWindow implements Disposable {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 Point p = e.getPoint();
-                int row = tbContent.rowAtPoint(p);
+                int viewRowIndex = tbContent.rowAtPoint(p);
+                int row =  tbContent.convertRowIndexToModel(viewRowIndex);
                 int column = tbContent.columnAtPoint(p);
                 if (column == DataCenter.FILE_NAME_COLUMN) {
                     NoteData noteData = DataCenter.get(row);
                     openEditor(noteData.getPath(),  noteData.getLineNumberOffsetInt());
                 }
-                tbContent.setRowSelectionInterval(row, row);
+                tbContent.setRowSelectionInterval(viewRowIndex, viewRowIndex);
                 if (e.getButton() == java.awt.event.MouseEvent.BUTTON3) {
                     createPopupMenu(row, project);
                     popupMenu.show(tbContent, e.getX(), e.getY());
